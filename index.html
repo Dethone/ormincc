@@ -21871,7 +21871,7 @@
 
           <!-- Footer -->
           <footer id="footer" style="margin-left: 50px">
-            <p class="copyright">&copy;PUP Bansud Intern 2023</p>
+            <p class="copyright">&copy;SIBTECH & PUP Bansud Intern 2023</p>
             <p class="copyright">Interactive Citizen's Charter Version 2.1</p>
           </footer>
         </div>
@@ -21944,12 +21944,35 @@
     };
 </script>
 
-
 <script>
     function calculateContribution() {
         var basicSalary = parseFloat(document.getElementById('basicSalary').value);
         var year = document.getElementById('dateyear').value;
         var contribution = 0;
+
+        if (basicSalary<=10000) {
+            switch (year) {
+                case '2019':
+                    contribution = 275;
+                    break;
+                case '2020':
+                    contribution = 300;
+                    break;
+                case '2021':
+                    contribution = 350;
+                    break;
+                case '2022':
+                    contribution = 400;
+                    break;
+                case '2023':
+                    contribution = 450;
+                    break;
+                case '2024':
+                case '2025':
+                    contribution = 500;
+                    break;
+            }
+        } else {
 
         switch (year) {
             case '2019':
@@ -21985,12 +22008,13 @@
                 }
                 break;
         }
+    }
 
         var resultElement = document.getElementById('result');
         if (contribution > 0) {
             resultElement.textContent = "Your monthly premium contribution is: P" + contribution.toFixed(2);
         } else {
-            resultElement.textContent = "Basic Salary must be 10000 or above!";
+            resultElement.textContent = "Please provide your Basic monthly salary or Monthly Income!";
         }
     }
 
@@ -22000,5 +22024,6 @@
         document.getElementById('result').textContent = "";
     }
 </script>
+
   </body>
 </html>
